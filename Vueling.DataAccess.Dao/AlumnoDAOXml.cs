@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vueling.Common.Logic.Model
+namespace Vueling.DataAccess.Dao
 {
-    class VuelingObject
+    class AlumnoDAOXml
     {
-        
-
     }
 }

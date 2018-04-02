@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnoDAO.cs" />
+    <Compile Include="AlumnoDAOJson.cs" />
+    <Compile Include="AlumnoDAOTxt.cs" />
+    <Compile Include="AlumnoDAOXml.cs" />
     <Compile Include="IAlumnoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
