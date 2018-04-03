@@ -4,14 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Model;
+using Vueling.DataAccess.Dao;
 
 namespace Vueling.Business.Logic
 {
     public class AlumnoBL : IAlumnoBL
     {
-        public Alumno Add(Alumno alumno)
+        private IAlumnoDAO _alumnoDAO;
+        public AlumnoBL()
         {
-            throw new NotImplementedException();
+           
+        }
+        public Alumno Add(Alumno alumno, int TipoFichero)
+        {
+            switch (TipoFichero)
+            {
+                case 1:
+                    _alumnoDAO = new AlumnoDAOTxt();
+                    _alumnoDAO.add(alumno);
+                    break;
+                case 2:
+                    _alumnoDAO = new AlumnoDAOJson();
+                    _alumnoDAO.add(alumno);
+                    break;
+                case 3:
+                    _alumnoDAO = new AlumnoDAOXml();
+                    _alumnoDAO.add(alumno);
+                    break;
+            }
+
+
+            return alumno;
         }
     }
 }

@@ -15,35 +15,68 @@ namespace Vueling.Presentation.WinSite
     public partial class AlumnoForm : Form
     {
         private Alumno alumno;
-        private AlumnoBL alumnoBL;
+        private AlumnoBL _alumnoBL;
         public AlumnoForm()
         {
             InitializeComponent();
             alumno = new Alumno();
-            alumnoBL = new AlumnoBL();
+            _alumnoBL = new AlumnoBL();
         }
 
         private void btnTxt_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(((Button)sender).Name);
-
-            
+            GenerarAlumno();
+            int TipoFichero = 1;
+            Alumno al = _alumnoBL.Add(alumno, TipoFichero);
+            if (al != null)
+            {
+                MessageBox.Show("Usuario introducido correctamente.");
+                LimpiarCampos();
+            }
         }
 
         private void btnJSON_Click(object sender, EventArgs e)
         {
-
+            GenerarAlumno();
+            int TipoFichero = 2;
+            Alumno al = _alumnoBL.Add(alumno, TipoFichero);
+            if (al != null)
+            {
+                MessageBox.Show("Usuario introducido correctamente.");
+                LimpiarCampos();
+            }
         }
 
         private void btnXML_Click(object sender, EventArgs e)
         {
-
+            GenerarAlumno();
+            int TipoFichero = 3;
+            Alumno al = _alumnoBL.Add(alumno, TipoFichero);
+            if (al != null)
+            {
+                MessageBox.Show("Usuario introducido correctamente.");
+                LimpiarCampos();
+            }
         }
 
-        private void LoadAlumnoData()
+        private void GenerarAlumno()
         {
-            alumno.ID = Convert.ToInt32(txtId.Text);
-            alumno.Nombre = txtName.Text;
+            alumno.GUID = new Guid();
+            alumno.ID = txtId.Text;
+            alumno.NOMBRE = txtName.Text;
+            alumno.APELLIDOS = txtApellidos.Text;
+            alumno.DNI = txtDNI.Text;
+            alumno.NACIMIENTO = dpNacimiento.Value;
+        }
+
+        private void LimpiarCampos()
+        {
+            txtId.Text = "";
+            txtName.Text = "";
+            txtApellidos.Text = "";
+            txtDNI.Text = "";
+            dpNacimiento.Value = DateTime.Today;
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Vueling.Common.Logic.Model
     public class Alumno 
     {
             public Guid GUID { get; set; }
-            public int ID { get; set; }
+            public string ID { get; set; }
             public string NOMBRE { get; set; }
             public string APELLIDOS { get; set; }
             public string DNI { get; set; }
@@ -18,7 +18,7 @@ namespace Vueling.Common.Logic.Model
             public DateTime REGISTRO { get; set; }
 
 
-            public Alumno(int pId, string pNombre, string pApellidos, string pDNI, Guid pGUID, DateTime pNacimiento, DateTime pRegistro)
+            public Alumno(string pId, string pNombre, string pApellidos, string pDNI, Guid pGUID, DateTime pNacimiento, DateTime pRegistro)
             {
                 GUID = pGUID;
                 this.ID = pId;
@@ -29,7 +29,11 @@ namespace Vueling.Common.Logic.Model
                 this.REGISTRO = pRegistro;
             }
 
-            public override bool Equals(object obj)
+        public Alumno()
+        {
+        }
+
+        public override bool Equals(object obj)
             {
                 var alumno = obj as Alumno;
                 return alumno != null &&

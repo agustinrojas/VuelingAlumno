@@ -35,12 +35,12 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
-            this.txtNacimiento = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblNacimiento = new System.Windows.Forms.Label();
+            this.dpNacimiento = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btnTxt
@@ -101,13 +101,6 @@
             this.txtDNI.Size = new System.Drawing.Size(100, 20);
             this.txtDNI.TabIndex = 6;
             // 
-            // txtNacimiento
-            // 
-            this.txtNacimiento.Location = new System.Drawing.Point(211, 160);
-            this.txtNacimiento.Name = "txtNacimiento";
-            this.txtNacimiento.Size = new System.Drawing.Size(100, 20);
-            this.txtNacimiento.TabIndex = 7;
-            // 
             // lblId
             // 
             this.lblId.AutoSize = true;
@@ -153,17 +146,25 @@
             this.lblNacimiento.TabIndex = 12;
             this.lblNacimiento.Text = "Fecha de Nacimiento";
             // 
+            // dpNacimiento
+            // 
+            this.dpNacimiento.Location = new System.Drawing.Point(212, 163);
+            this.dpNacimiento.Name = "dpNacimiento";
+            this.dpNacimiento.Size = new System.Drawing.Size(99, 20);
+            this.dpNacimiento.TabIndex = 13;
+            this.dpNacimiento.Value = new System.DateTime(1950, 4, 3, 14, 56, 0, 0);
+            // 
             // AlumnoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 294);
+            this.Controls.Add(this.dpNacimiento);
             this.Controls.Add(this.lblNacimiento);
             this.Controls.Add(this.lblDNI);
             this.Controls.Add(this.lblApellidos);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblId);
-            this.Controls.Add(this.txtNacimiento);
             this.Controls.Add(this.txtDNI);
             this.Controls.Add(this.txtApellidos);
             this.Controls.Add(this.txtName);
@@ -187,11 +188,11 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtDNI;
-        private System.Windows.Forms.TextBox txtNacimiento;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Label lblNacimiento;
+        private System.Windows.Forms.DateTimePicker dpNacimiento;
     }
 }

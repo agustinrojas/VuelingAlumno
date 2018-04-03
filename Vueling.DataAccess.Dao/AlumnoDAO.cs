@@ -12,6 +12,10 @@ namespace Vueling.DataAccess.Dao
 
         public Alumno add(Alumno alumno)
         {
+            //Guardar en fichero
+            //try catch
+            //poner los errores en el log
+            //si no se hace el try catch la excepcion sube a la capa business
             throw new NotImplementedException();
         }
     }

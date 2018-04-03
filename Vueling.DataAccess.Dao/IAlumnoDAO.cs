@@ -8,7 +8,7 @@ using Vueling.Common.Logic.Model;
 
 namespace Vueling.DataAccess.Dao
 {
-    interface IAlumnoDAO
+    public interface IAlumnoDAO
     {
         //Metodo Add, tiene que devolver objeto alumno
         Alumno add(Alumno alumno);
