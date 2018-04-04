@@ -10,6 +10,7 @@ namespace Vueling.Business.Logic
     public interface IAlumnoBL
     {
         //Metodo Add, tiene que devolver objeto alumno
-        Alumno Add(Alumno alumno, int TipoFichero);
-     }
+        Alumno add(Alumno alumno);
+        int AreAge(DateTime dateBorn, DateTime dateRegis);
+    }
 }

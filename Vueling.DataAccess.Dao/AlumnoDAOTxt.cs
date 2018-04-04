@@ -7,30 +7,61 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Model;
+using Vueling.Common.Logic.FileUtils;
 
 namespace Vueling.DataAccess.Dao
 {
     public class AlumnoDAOTxt : IAlumnoDAO
     {
+        public string Path = FileUtils.Path("txt");
         public Alumno add(Alumno alumno)
         {
-            //recuperamos variable del app.config
-            //string rutaFicheros = "C: \Users\agustin.rojas\Desktop\ "; 
 
-            string guardarEnTxt = "Mi alumno: \n";
-            Type myType = alumno.GetType();
-            IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
-            foreach (PropertyInfo prop in props)
+            if (File.Exists(Path))
             {
-                object propValue = prop.GetValue(alumno, null);
-                guardarEnTxt = guardarEnTxt + prop.Name + ":" + propValue.ToString() + " ,";
+                using (FileStream str = new FileStream(Path, FileMode.Append, FileAccess.Write))
+                {
+                    using (StreamWriter sw = new StreamWriter(str))
+                    {
+                        sw.WriteLine(alumno.ToString());
+
+                    }
+                }
+                return DeserializerTxt(alumno.GUID);
             }
-            using (StreamWriter file = new StreamWriter("prueba_io.txt"))
+            else
             {
-                //mostrar por pantalla
-                file.WriteLine(guardarEnTxt.Remove(guardarEnTxt.Length - 1));
+                using (FileStream str = new FileStream(Path, FileMode.Create, FileAccess.Write))
+                {
+                    using (StreamWriter sw = new StreamWriter(str))
+                    {
+                        sw.WriteLine(alumno.ToString());
+
+                    }
+                }
+                return DeserializerTxt(alumno.GUID);
             }
-            return alumno;
+        }
+        private Alumno DeserializerTxt(Guid guid)
+        {
+            Alumno alumnoDS;
+            using (FileStream fs = new FileStream(Path, FileMode.Open, FileAccess.Read))
+            {
+                using (StreamReader sr = new StreamReader(fs))
+                {
+                    string[] props = new string[6];
+                    string linea = "";
+                    while ((linea = sr.ReadLine()) != null)
+                    {
+                        props = linea.Split(',');
+                    }
+
+
+                    alumnoDS = new Alumno(guid, (props[0]), props[1], props[2], props[3], Convert.ToInt32(props[4]));
+                    return alumnoDS;
+                }
+
+            }
         }
     }
 }

@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlumnoBL.cs" />
+    <Compile Include="AlumnoBLJson.cs" />
+    <Compile Include="AlumnoBLTxt.cs" />
+    <Compile Include="AlumnoBLXml.cs" />
     <Compile Include="IAlumnoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

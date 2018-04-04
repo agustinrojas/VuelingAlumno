@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,32 +8,42 @@ using System.Threading.Tasks;
 namespace Vueling.Common.Logic.Model
 
 {
-    public class Alumno 
+    public class Alumno : VuelingObject
     {
-            public Guid GUID { get; set; }
-            public string ID { get; set; }
-            public string NOMBRE { get; set; }
-            public string APELLIDOS { get; set; }
-            public string DNI { get; set; }
-            public DateTime NACIMIENTO { get; set; }
-            public DateTime REGISTRO { get; set; }
+        public string ID { get; set; }
+        public string NOMBRE { get; set; }
+        public string APELLIDOS { get; set; }
+        public string DNI { get; set; }
+        public int EDAD { get; set; }
+        public DateTime NACIMIENTO { get; set; }
+        public DateTime REGISTRO { get; set; }
+        public string FechaAlta { get; set; }
 
+        public Alumno()
+        {
+            this.GUID = Guid.NewGuid();
+        }
 
-            public Alumno(string pId, string pNombre, string pApellidos, string pDNI, Guid pGUID, DateTime pNacimiento, DateTime pRegistro)
+        public Alumno(Guid pGUID, string pId, string pNombre, string pApellidos, string pDNI, int pEDAD)
             {
-                GUID = pGUID;
+                this.GUID = pGUID;
                 this.ID = pId;
                 this.NOMBRE = pNombre;
                 this.APELLIDOS = pApellidos;
                 this.DNI = pDNI;
-                this.NACIMIENTO = pNacimiento;
-                this.REGISTRO = pRegistro;
+                this.EDAD = pEDAD;
             }
 
-        public Alumno()
+        public override string ToString()
         {
+            return String.Format($"{ID},{DNI},{NOMBRE},{APELLIDOS},{NACIMIENTO},fecha de registro :{REGISTRO};");
         }
+        public override string ToJson(Alumno alumno)
+        {
+            this.FechaAlta = REGISTRO.ToString();
+            return JsonConvert.SerializeObject(alumno);
 
+        }
         public override bool Equals(object obj)
             {
                 var alumno = obj as Alumno;

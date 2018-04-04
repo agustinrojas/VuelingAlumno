@@ -41,6 +41,7 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.lblNacimiento = new System.Windows.Forms.Label();
             this.dpNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTxt
@@ -154,11 +155,22 @@
             this.dpNacimiento.TabIndex = 13;
             this.dpNacimiento.Value = new System.DateTime(1950, 4, 3, 14, 56, 0, 0);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(472, 229);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(143, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Ir a Mostrar Alumnos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AlumnoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 294);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dpNacimiento);
             this.Controls.Add(this.lblNacimiento);
             this.Controls.Add(this.lblDNI);
@@ -194,5 +206,6 @@
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.Label lblNacimiento;
         private System.Windows.Forms.DateTimePicker dpNacimiento;
+        private System.Windows.Forms.Button button1;
     }
 }
